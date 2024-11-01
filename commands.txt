@@ -1,0 +1,6 @@
+cargo add diesel chrono --features "diesel/postgres diesel/r2d2"
+cargo install diesel_cli_ext
+diesel print-schema > schema.rs
+diesel setup
+diesel migration generate create_user_table
+diesel_ext > src/db_models.rs
