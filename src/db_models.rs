@@ -4,18 +4,20 @@
 #![allow(clippy::all)]
 
 
-use chrono::NaiveDateTime;
+use chrono::DateTime;
+use chrono::offset::Utc;
 use diesel::Queryable;
 use serde::Serialize;
+
 
 #[derive(Queryable, Debug, Serialize)]
 pub struct Article {
     pub id: i32,
     pub title: String,
     pub content: String,
-    pub created_by: Option<i32>,
+    pub created_by: i32,
     #[serde(skip_serializing)]
-    pub created_on: NaiveDateTime,
+    pub created_on: Option<DateTime<Utc>>,
 }
 
 #[derive(Queryable, Debug, Serialize)]

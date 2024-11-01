@@ -3,20 +3,17 @@
 diesel::table! {
     articles (id) {
         id -> Int4,
-        #[max_length = 255]
         title -> Varchar,
         content -> Text,
-        created_by -> Nullable<Int4>,
-        created_on -> Timestamp,
+        created_by -> Int4,
+        created_on -> Nullable<Timestamptz>,
     }
 }
 
 diesel::table! {
     users (id) {
         id -> Int4,
-        #[max_length = 255]
         first_name -> Varchar,
-        #[max_length = 255]
         last_name -> Varchar,
     }
 }
